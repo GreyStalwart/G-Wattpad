@@ -38,7 +38,7 @@ router.get("/:id/download/:format", async (req, res) => {
         let readStream = new stream.PassThrough();
         readStream.end(fileContents);
 
-        res.set("Content-disposition", "attachment; filename=" + `${WP.formatBookTitle(bookData.title)}-${bookData.id}.epub`);
+        res.set("Content-disposition", "attachment; filename=" + `${WP.formatBookTitle(bookData.title)}.epub`);
         res.set("Content-Type", "application/epub+zip");
 
         readStream.pipe(res);
